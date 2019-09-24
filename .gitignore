@@ -1,3 +1,13 @@
+## Specific to this project
+# On MacOS
+.DS_Store
+# Files
+*.zip
+*.pdf
+# Related to Jupyter notebooks
+*.ipynb_checkpoints/
+*__pycache__/
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

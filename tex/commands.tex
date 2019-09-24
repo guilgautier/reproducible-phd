@@ -1,0 +1,91 @@
+% !TEX root = reproducible-phd.tex
+% Specific to this .tex
+
+
+% TODO command
+\newcommand*{\todo}[1]{\textcolor{red}{TODO:{#1}}}
+\newcommand*{\anstodo}[1]{\textcolor{blue}{ANS-TODO:{#1}}}
+\newcommand*{\rb}[1]{\textcolor{magenta}{RB:{#1}}}
+\newcommand*{\mv}[1]{\textcolor{red}{MV:{#1}}}
+\newcommand*{\GG}[1]{\textcolor{blue}{GG:{#1}}}  % gg already exists
+
+%%%%%%%%%%%%%%%%%%%
+%%%% Footnotes %%%%
+%%%%%%%%%%%%%%%%%%%
+
+% Footnotes 1, 2, 3 and then fancy ones!
+\makeatletter
+\@addtoreset{footnote}{page}
+\makeatother
+
+\renewcommand{\thefootnote}{
+    \ifcase\value{footnote}
+        \or{1}
+        \or{2}
+        \or{3}
+        \or{\color{black}\faGithub}
+        \or{\color{black}\faBook}
+        \or{\color{black}\faGears}
+        \or{\color{black}\faIndent}
+        \or{\color{black}\faNewspaperO}
+    \fi}
+
+% Cross ref a foonote
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
+
+\addtolength{\skip\footins}{-3pc plus 5pt}
+
+\newcommand{\hrefguilgautier}{\href{https://github.com/guilgautier}
+                                   {\textsf{guilgautier}}}
+\newcommand{\hrefguillep}{\href{https://github.com/guillep}
+                               {\textsf{guillep}}}
+
+\newcommand{\hrefGitHub}{\href{https://github.com}
+                              {\textsf{github.com}}}
+\newcommand{\hrefIssues}{\href{https://github.com/guilgautier/reproducible-phd/issues}{\textsf{reproducible-phd/issues}}}
+\newcommand{\hrefPullRequests}{\href{https://github.com/guilgautier/reproducible-phd/pulls}{\textsf{reproducible-phd/pulls}}}
+\newcommand{\hrefReleases}{\href{https://github.com/guilgautier/reproducible-phd/releases}{\textsf{reproducible-phd/releases}}}
+\newcommand{\hrefSphinx}{\href{http://www.sphinx-doc.org/en/master}
+                              {\textsf{sphinx-doc.org}}}
+\newcommand{\hrefReadTheDocs}{\href{https://readthedocs.io}
+                                   {\textsf{readthedocs.io}}}
+\newcommand{\hrefTravis}{\href{https://travis-ci.com}
+                              {\textsf{travis-ci.com}}}
+\newcommand{\hrefCoveralls}{\href{https://coveralls.io}
+                                 {\textsf{coveralls.io}}}
+\newcommand{\hrefPyPI}{\href{https://pypi.org}
+                            {\textsf{pypi.org}}}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%% Referencing %%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*{\Appref}[1]{Appendix~\ref{#1}}
+\newcommand*{\Chapref}[1]{Chapter~\ref{#1}}
+\newcommand*{\Figref}[1]{Figure~\ref{#1}}
+\newcommand*{\Secref}[1]{Section~\ref{#1}}
+\newcommand*{\Tabref}[1]{Table~\ref{#1}}
+
+% Citation of the form In author's (year) paper
+% Add 's to author name
+% e.g. \citepos{Wig67} => Wigner's (1967)
+\makeatletter
+% make numeric styles use name format
+\patchcmd{\NAT@test}{\else \NAT@nm}{\else \NAT@nmfmt{\NAT@nm}}{}{}
+% define \citepos just like \citet
+\DeclareRobustCommand\citepos
+  {\begingroup
+   \let\NAT@nmfmt\NAT@posfmt% ...except with a different name format
+   \NAT@swafalse\let\NAT@ctype\z@\NAT@partrue
+   \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+\let\NAT@orig@nmfmt\NAT@nmfmt
+\def\NAT@posfmt#1{\NAT@orig@nmfmt{#1's}}
+\makeatother
+
+% % Itemize symbols
+% \renewcommand{\labelitemi}{$\bullet$}
+% \renewcommand{\labelitemii}{$\diamond$}
+% \renewcommand{\labelitemiii}{$\ast$}
+% \renewcommand{\labelitemiv}{$\cdot$}

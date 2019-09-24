@@ -1,0 +1,84 @@
+\documentclass{article}
+
+\input{packages}
+\include{commands}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TITLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Get your Ph.D. reproducible with Python and GitHub a software engineering perspective}
+
+\author{Guillaume Gautier \hrefguilgautier, Guillermo Polito \hrefguillep}
+
+\date{ Last compilation \today }
+
+\maketitle
+\tableofcontents
+
+\clearpage
+\section{Birth of a project} % (fold)
+\label{sec:birth_of_a_project}
+	\begin{itemize}
+		\item create a repo \hrefGitHub
+		\item write a explicit README
+		\begin{itemize}
+			\item description
+	        \item installation
+	        \item dependences
+	        \item utilisation
+		\end{itemize}
+		\item keywords
+	\end{itemize}
+% section birth_of_a_project (end)
+
+\section{Versioning management} % (fold)
+\label{sec:versioning_management}
+	\begin{itemize}
+		\item don't fear making mistakes
+		\item version your files
+		\item diff
+		\item checkpoints (tags)
+		\item branches
+		\item resolve a merge conflict
+	\end{itemize}
+% section versioning_management (end)
+
+\section{Share and collaborate} % (fold)
+\label{sec:share_and_collaborate}
+	Get feeback
+	\begin{itemize}
+		\item Issues \hrefIssues
+    	\item Pull Request \hrefPullRequests
+    	\item Releases \hrefReleases
+	\end{itemize}
+% section share_and_collaborate (end)
+
+\section{Packaging for external users} % (fold)
+\label{sec:packaging_for_external_users}
+	\begin{itemize}
+		\item automate dependencies: pip
+		\item docstring, sphinx? \hrefSphinx, \hrefReadTheDocs
+		\item publishing on pypi \hrefPyPI
+	\end{itemize}
+% section packaging_for_external_users (end)
+
+\section{Testing and Continuous integration} % (fold)
+\label{sec:testing_and_continuous_integration}
+	\begin{itemize}
+		\item automate feedback (validations, compilation, testing) \hrefTravis
+		\item badges
+		\item code coverage \hrefCoveralls
+	\end{itemize}
+% section testing_and_continuous_integration (end)
+
+
+\clearpage
+\citet{Wig67}
+\bibliographystyle{icml2017}
+\bibliography{biblio}
+
+\end{document}
